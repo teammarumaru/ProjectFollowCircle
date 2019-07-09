@@ -124,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ballPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8985570375837625430, guid: bad0980f46d6e1e4992546bf8e4bdfde,
+        type: 3}
+      propertyPath: m_TagString
+      value: white_circle
+      objectReference: {fileID: 0}
     - target: {fileID: 8985570375837625427, guid: bad0980f46d6e1e4992546bf8e4bdfde,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -184,6 +189,21 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 944737786}
+    - target: {fileID: 8985570375837625424, guid: bad0980f46d6e1e4992546bf8e4bdfde,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985570375837625424, guid: bad0980f46d6e1e4992546bf8e4bdfde,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8985570375837625424, guid: bad0980f46d6e1e4992546bf8e4bdfde,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bad0980f46d6e1e4992546bf8e4bdfde, type: 3}
 --- !u!1001 &46766288
@@ -198,15 +218,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ballPrefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8985570375837625430, guid: bad0980f46d6e1e4992546bf8e4bdfde,
+        type: 3}
+      propertyPath: m_TagString
+      value: white_circle
+      objectReference: {fileID: 0}
     - target: {fileID: 8985570375837625427, guid: bad0980f46d6e1e4992546bf8e4bdfde,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8985570375837625427, guid: bad0980f46d6e1e4992546bf8e4bdfde,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13
+      value: -44
       objectReference: {fileID: 0}
     - target: {fileID: 8985570375837625427, guid: bad0980f46d6e1e4992546bf8e4bdfde,
         type: 3}
@@ -277,15 +302,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ballPrefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8985570375837625430, guid: bad0980f46d6e1e4992546bf8e4bdfde,
+        type: 3}
+      propertyPath: m_TagString
+      value: white_circle
+      objectReference: {fileID: 0}
     - target: {fileID: 8985570375837625427, guid: bad0980f46d6e1e4992546bf8e4bdfde,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 61.3
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8985570375837625427, guid: bad0980f46d6e1e4992546bf8e4bdfde,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.3
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 8985570375837625427, guid: bad0980f46d6e1e4992546bf8e4bdfde,
         type: 3}
@@ -730,7 +760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0226089d991cd428883cf391ba38be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera_object: {fileID: 298051707}
   ball:
   - {fileID: 196445406}
   - {fileID: 1858300507}
