@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - white_circle
+  - red_circle
   layers:
   - Default
   - TransparentFX

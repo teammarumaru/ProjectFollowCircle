@@ -50,6 +50,7 @@ public class GameScript : MonoBehaviour
                         if (g == true && n <= select[i].GetComponent<ballScript>().num)
                         {
                             n = select[i].GetComponent<ballScript>().num;
+                            print(n);
                         }
                         else
                         {
@@ -76,6 +77,7 @@ public class GameScript : MonoBehaviour
                 {
                     Debug.Log("失敗");
                 }
+                select.Clear();
             }
         }
     }
