@@ -96,6 +96,9 @@ MonoBehaviour:
   text: {fileID: 1949438843425864745, guid: aa3f1bb760fb23c498b12e31f17e1820, type: 3}
   canvas: {fileID: 0}
   num: 1
+  CircleSprite: {fileID: 21300000, guid: af6b4e02a02e15b4ba0268ea4af94a38, type: 3}
+  SquareSprite: {fileID: 21300000, guid: 147c07c780a2376408a59d877b279e8b, type: 3}
+  TriangleSprite: {fileID: 21300000, guid: 15e901516986b8a42b346272b0aa9321, type: 3}
 --- !u!58 &3439243691193719019
 CircleCollider2D:
   m_ObjectHideFlags: 0

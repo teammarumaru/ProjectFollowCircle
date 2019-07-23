@@ -9,9 +9,33 @@ public class ballScript : MonoBehaviour
     public GameObject canvas;
     bool flag_Select;
     public int num;
+
+    public Sprite CircleSprite;
+    public Sprite SquareSprite;
+    public Sprite TriangleSprite;
+
     // Start is called before the first frame update
-    void Start()
+    public void StartBall(int num, GameObject canvas, Vector2 pos)
     {
+        this.num = num;
+        this.canvas = canvas;
+        this.transform.position = pos;
+        
+
+        if(this.tag.Contains("square"))
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite=SquareSprite;
+        }
+        if (this.tag.Contains("triangle"))
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = TriangleSprite;
+        }
+        if (this.tag.Contains("red"))
+        {
+            //E06F6F
+            this.GetComponent<Renderer>().material.color=new Color(224, 111, 111, 1);
+        }
+
         flag_Select = false;
         GameObject p = Instantiate(text) as GameObject;
         p.transform.position = this.transform.position;
