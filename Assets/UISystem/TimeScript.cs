@@ -45,8 +45,6 @@ public class TimeScript : MonoBehaviour
 
 
         text.text = secText + ":" + msecText;
-
-        Debug.Log(time);
     }
     
     // 秒数をそのまま返す。
