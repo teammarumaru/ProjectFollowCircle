@@ -703,12 +703,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1608627644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2f73a960633c594d9e603101d3a18c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8696890c990237e48bcd25e4228c0598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Success: {fileID: 0}
-  Failed: {fileID: 0}
-  GameScript: {fileID: 0}
+  Instruction: {fileID: 797891922}
+  StartCountDown: {fileID: 910410079}
+  timer: {fileID: 1536281783}
 --- !u!1 &1849153530
 GameObject:
   m_ObjectHideFlags: 0
