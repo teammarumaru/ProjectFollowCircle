@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameScript : MonoBehaviour
 {
-    public List<ballScript> ball;
+    public List<GameObject> ball;
     List<GameObject> select;
+    public StageScript st;
 
     // 予定
     // ・ステージ制になるだろうからステージに応じて判別するtag名を変える
@@ -16,6 +17,7 @@ public class GameScript : MonoBehaviour
     void Start()
     {
         select = new List<GameObject>();
+        st = GameObject.Find("StageObject").GetComponent<StageScript>();
     }
 
     // Update is called once per frame
@@ -41,32 +43,31 @@ public class GameScript : MonoBehaviour
             if (select?.Count > 0)  //なんか１個でも選択してるとき
             {
                 int n = 0;      // １個前の数字　これ以上だったらOK
-               bool g = true;   // 成否判定　変数名思いつかなかった顔をしている
-                if (select.Count == ball.Count)  //　←今はボールの総数＝答えてほしい総数だからこれでいいけど後のためにも変えような！
+                bool g = true;   // 成否判定　変数名思いつかなかった顔をしている
+
+                for (int i = 0; i < select.Count; i++)
                 {
-                   
-                    for (int i = 0; i < select.Count; i++)
+                    if (g == true && n <= select[i].GetComponent<ballScript>().num&&select[i].transform.tag.Contains(st.successTag))
                     {
-                        if (g == true && n <= select[i].GetComponent<ballScript>().num)
-                        {
-                            n = select[i].GetComponent<ballScript>().num;
-                            print(n);
-                        }
-                        else
-                        {
-                            g = false;
-                        }
-                        select[i].GetComponent<ballScript>().SetSelect(false);
+                        n = select[i].GetComponent<ballScript>().num;
+                        print(n);
                     }
+                    else
+                    {
+                        g = false;
+                    }
+                    select[i].GetComponent<ballScript>().SetSelect(false);
                 }
-                else
+                int c = 0;
+                for (int i = 0; i < ball.Count; i++) 
                 {
-                    for (int i = 0; i < select.Count; i++)
-                    {
-                        select[i].GetComponent<ballScript>().SetSelect(false);
-                    }
+                    if (ball[i].transform.tag.Contains(st.successTag))
+                        c++;
+                }
+                if (c != select.Count)
                     g = false;
-                }
+
+
 
                 // そもそもなんも選択してないときは判定されない
                 if(g)

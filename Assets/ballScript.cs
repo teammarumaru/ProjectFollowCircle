@@ -33,7 +33,17 @@ public class ballScript : MonoBehaviour
         if (this.tag.Contains("red"))
         {
             //E06F6F
-            this.GetComponent<Renderer>().material.color=new Color(224, 111, 111, 1);
+            this.GetComponent<Renderer>().material.color=new Color(0.877f, 0.434f, 0.434f, 1);
+        }
+        if(this.tag.Contains("blue"))
+        {
+            //76BFEF
+            this.GetComponent<Renderer>().material.color = new Color(0.462f, 0.749f, 0.937f, 1);
+        }
+        if (this.tag.Contains("green"))
+        {
+            //AAEE77
+            this.GetComponent<Renderer>().material.color = new Color(0.665f, 0.933f, 0.462f, 1);
         }
 
         flag_Select = false;
