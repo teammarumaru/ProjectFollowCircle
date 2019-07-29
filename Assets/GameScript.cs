@@ -88,16 +88,12 @@ public class GameScript : MonoBehaviour
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(pos, new Vector3(0, 0, 1), 100);
 
-        if (hit.collider && hit.collider.gameObject.GetComponent<ballScript>().GetSelect() == false)
+        if (hit.collider && hit.collider.transform.tag.Contains("_")&& hit.collider.gameObject.GetComponent<ballScript>().GetSelect() == false)
         {
             //既に選択中のボールは入れない
             select.Add(hit.collider.gameObject);
             hit.collider.gameObject.GetComponent<ballScript>().SetSelect(true);
             //Debug.Log(hit.collider.transform.tag);
-            if(hit.collider.transform.tag.Contains("white"))    //タグ名にwhiteがあるか(テスト)
-            {
-                Debug.Log("white");
-            }
             return true;
         }
         return false;
