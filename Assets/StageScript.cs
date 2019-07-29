@@ -56,6 +56,21 @@ public class StageScript : MonoBehaviour
                     break;
             }
         }
+        else if(level==3)
+        {
+            switch(r1)
+            {
+                case 1:
+                    successTag = "green";
+                    break;
+                case 2:
+                    successTag = "red";
+                    break;
+                case 3:
+                    successTag = "blue";
+                    break;
+            }
+        }
         else
         {
             successTag = "circle";
