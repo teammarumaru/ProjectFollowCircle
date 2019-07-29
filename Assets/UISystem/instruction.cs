@@ -8,7 +8,7 @@ public class instruction : MonoBehaviour
     // Start is called before the first frame update
 
     // レベル
-    int category = 1;
+    int category = 2;
     Text Message;
     void Start()
     {
@@ -30,7 +30,9 @@ public class instruction : MonoBehaviour
             case 1:
                 Message.text = "同じ形をなぞれ！";
                 break;
-
+            case 2:
+                Message.text = "同じ色をなぞれ！";
+                break;
         }
 
 
