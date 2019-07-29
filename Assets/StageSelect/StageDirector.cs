@@ -46,7 +46,12 @@ public class StageDirector : MonoBehaviour
 
         // スタートボタンが押された時シーン遷移する
         if (StartButton.GetComponent<Button>().GetFlug())
+        {
+            // システムマネージャーさんにレベルを渡す
+            GameObject SystemManager = GameObject.Find("SystemManager");
+            SystemManager.GetComponent<SystemManager>().SetLevel(nowLevel);
             // シーン遷移処理(ちゃんとプレイシーンに変更してください)
             SceneManager.LoadScene("Follow");
+        }
     }
 }

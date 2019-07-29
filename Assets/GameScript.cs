@@ -8,6 +8,8 @@ public class GameScript : MonoBehaviour
     List<GameObject> select;
     public StageScript st;
 
+    // 成否判定メンバ変数(追加：佐竹)
+    bool isClear = false;
     // 予定
     // ・ステージ制になるだろうからステージに応じて判別するtag名を変える
     // ・そのためにゲームマネージャーがいる
@@ -72,11 +74,15 @@ public class GameScript : MonoBehaviour
                 // そもそもなんも選択してないときは判定されない
                 if(g)
                 {
-                    Debug.Log("成功");
+                    // ログ出力の代わりに代入(追加:佐竹)
+                    isClear = true;
+                    //Debug.Log("成功");
                 }
                 else
                 {
-                    Debug.Log("失敗");
+                    // ログ出力の代わりに代入(追加:佐竹)
+                    isClear = false;
+                    //Debug.Log("失敗");
                 }
                 select.Clear();
             }
@@ -97,5 +103,11 @@ public class GameScript : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    // 変数isClearのGet関数(追加：佐竹）
+    public bool GetClear()
+    {
+        return isClear;
     }
 }

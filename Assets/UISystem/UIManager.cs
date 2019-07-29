@@ -8,8 +8,7 @@ public class UIManager : MonoBehaviour
 {
     // スタートカウントダウンの最大値
     const int STARTCOUNTMAX = 3;
-    
-    // ゲームオブジェクト取得
+
     [SerializeField]
     GameObject Instruction = null;
     [SerializeField]
@@ -19,8 +18,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject SuccessIcon = null;
     [SerializeField]
-    GameObject ScoreManager = null;
-
+    GameObject GameSystem = null;
+    [SerializeField]
+    GameObject GameDirector = null;
+    
     // スタートカウントダウンからの遷移用
     bool isCountOut = false;
 
@@ -28,63 +29,42 @@ public class UIManager : MonoBehaviour
     int startcount = STARTCOUNTMAX;
 
     // 実際の秒数カウント
-    float count = 0;
+    float count = 0.0f;
 
-    // 最終的なタイムスコアを保存
-    float timeScore = 0;
+    // クリア時のタイム
+    float cleartime = 0.0f;
 
-
+    void Awake()
+    {
+        // 不可視化処理
+        Instruction.SetActive(false);
+        Timer.SetActive(false);
+        GameSystem.SetActive(false);
+        SuccessIcon.SetActive(false);
+        // 可視化処理
+        StartCountDown.SetActive(true);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        // オブジェクトの不可視化
-        Instruction.SetActive(false);
-        Timer.SetActive(false);
-        SuccessIcon.SetActive(false);
-        // オブジェクトの可視化
-        StartCountDown.SetActive(true);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        // スタートカウントダウン処理
-        if (count >= 0.5f)
+        // ゲームの成功を取得
+        if (GameDirector.GetComponent<GameScript>().GetClear())
         {
-            startcount--;
-            if (startcount == 0)
-            {
-                StartCountDown.SetActive(false);
-                Instruction.SetActive(true);
-                Timer.SetActive(true);
-                isCountOut = true;
-                count = 0;
-            }
-            count = 0;
-        }
-        else
-        {
-            count += Time.deltaTime;
-        }
-        // 文字出力
-        if(!isCountOut)
-        {
-            StartCountDown.GetComponent<Text>().text = "" + startcount.ToString();
-        }
-
-        // ゲームクリアを検出
-        {
-
-            timeScore = Timer.GetComponent<TimeScript>().GetTime();
-
-            // スコアマネージャーにセット
-
+            SuccessIcon.SetActive(true);
+            cleartime = Timer.GetComponent<TimeScript>().GetTime();
             // ウェイト
-            if (count >= 10.0f)
+            if (count >= 2.0f)
             {
-                count = 0;
-                // シーンの再読み込み
-
+                // システムを不可視化
+                GameSystem.SetActive(false);
+                // 回数が5回に満たない場合、再読み込みする
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else
             {
@@ -92,6 +72,36 @@ public class UIManager : MonoBehaviour
             }
 
         }
+        else
+        {
+            if (count >= 1.0f)
+            {
+                startcount--;
+                if (startcount == 0)
+                {
+                    StartCountDown.SetActive(false);
+                    Instruction.SetActive(true);
+                    Timer.SetActive(true);
+                    GameSystem.SetActive(true);
+                    isCountOut = true;
+                    count = 0;
+                }
+                count = 0;
+            }
+            else
+            {
+                count += Time.deltaTime;
+            }
+
+            if (!isCountOut)
+            {
+                StartCountDown.GetComponent<Text>().text = "" + startcount.ToString();
+            }
+        }
+
+       
+
+
         //// アニメーションテスト(表示の瞬間にアニメーションが始まるOK)
         //if(Input.GetKeyDown(KeyCode.Z))
         //{

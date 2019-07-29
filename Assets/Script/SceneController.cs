@@ -7,26 +7,7 @@ public class SceneController : MonoBehaviour
 {
     public void StartButtonClicked()
     {
-        // タイトル → セレクト
-        SceneManager.LoadScene("StageSelect");
-    }
-
-    public void ReStartButtonClicked()
-    {
-        // リザルト → ゲーム
-        SceneManager.LoadScene("Follow");
-    }
-
-    public void StageSelectButtonClicked()
-    {
-        // リザルト → セレクト
-        SceneManager.LoadScene("StageSelect");
-    }
-
-    public void NextStageButtonClicked()
-    {
-        // リザルト → 次のステージ
-        SceneManager.LoadScene("Follow");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void EndGame()
