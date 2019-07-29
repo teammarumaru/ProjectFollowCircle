@@ -12,10 +12,10 @@ public class SystemManager : MonoBehaviour
     // 選択されたレベルを保存する
     static int level = 1;
     // スコア用の配列　要素数:5
-    static int[] score = new int[MAX_STAGE];
+    static float[] score = new float[MAX_STAGE];
 
     // ゲーム数のカウント
-    static int gameCount = 0;
+    static int gameCount = 1;
     void Start()
     {
         // このオブジェクトは自動削除されない
@@ -23,7 +23,7 @@ public class SystemManager : MonoBehaviour
 
         for(int i = 0; i < MAX_STAGE; i++)
         {
-            score[i] = 0;
+            score[i] = 0.0f;
         }
     }
 
@@ -40,11 +40,11 @@ public class SystemManager : MonoBehaviour
     }
 
     // スコア
-    public void SetScore(int num,int element)
+    public void SetScore(float num,int element)
     {
         score[element] = num;
     }
-    public int GetScore(int element)
+    public float GetScore(int element)
     {
         return score[element];
     }

@@ -7,7 +7,7 @@ public class SceneController : MonoBehaviour
 {
     public void StartButtonClicked()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("StageSelect");
     }
 
     public void EndGame()

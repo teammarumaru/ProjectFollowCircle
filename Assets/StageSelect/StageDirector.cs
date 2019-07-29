@@ -15,6 +15,8 @@ public class StageDirector : MonoBehaviour
     [SerializeField]
     GameObject rightArrow = null;
     [SerializeField]
+    GameObject TitleButton = null;
+    [SerializeField]
     GameObject Level = null;
 
     int nowLevel = 0;
@@ -28,6 +30,8 @@ public class StageDirector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+
         // 左はマイナス
         if (leftArrow.GetComponent<Button>().GetFlug())
             nowLevel--;
@@ -40,6 +44,8 @@ public class StageDirector : MonoBehaviour
             nowLevel = MIN_LEVEL;
         if (nowLevel >= MAX_LEVEL)
             nowLevel = MAX_LEVEL;
+
+        
 
         // UI反映
         Level.GetComponent<Text>().text = "レベル" + nowLevel.ToString();
@@ -54,4 +60,12 @@ public class StageDirector : MonoBehaviour
             SceneManager.LoadScene("Follow");
         }
     }
+    public void BackTitle()
+    {
+        GameObject SystemManager = GameObject.Find("SystemManager");
+        Destroy(SystemManager);
+        SceneManager.LoadScene("TitleScene");
+    }
 }
+
+

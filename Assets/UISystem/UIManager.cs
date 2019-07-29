@@ -56,15 +56,27 @@ public class UIManager : MonoBehaviour
         // ゲームの成功を取得
         if (GameDirector.GetComponent<GameScript>().GetClear())
         {
+            GameObject SystemManager = GameObject.Find("SystemManager");
             SuccessIcon.SetActive(true);
             cleartime = Timer.GetComponent<TimeScript>().GetTime();
+            int gamecount = SystemManager.GetComponent<SystemManager>().GetGameCount();
+            SystemManager.GetComponent<SystemManager>().SetScore(cleartime, gamecount - 1);
             // ウェイト
             if (count >= 2.0f)
             {
                 // システムを不可視化
                 GameSystem.SetActive(false);
                 // 回数が5回に満たない場合、再読み込みする
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                
+                if (gamecount < 5)
+                {
+                    SystemManager.GetComponent<SystemManager>().AddGameCount();
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
+                else
+                {
+                    SceneManager.LoadScene("ResultScene");
+                }
             }
             else
             {

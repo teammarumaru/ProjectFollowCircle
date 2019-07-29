@@ -19,6 +19,10 @@ public class StageScript : MonoBehaviour
         if(num<3)
             num = 3;
 
+        // レベルの取得 (追加：佐竹)
+        GameObject SystemManager = GameObject.Find("SystemManager");
+        level = SystemManager.GetComponent<SystemManager>().GetLevel();
+
         // level2以上の違う色だったりするやつたち
         int wrongNum = Random.Range(0, num);
         int wrongNum2 = Random.Range(0, num); 
