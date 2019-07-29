@@ -804,9 +804,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Instruction: {fileID: 797891922}
-  StartCountDown: {fileID: 0}
-  Timer: {fileID: 0}
-  SuccessIcon: {fileID: 0}
+  StartCountDown: {fileID: 910410079}
+  Timer: {fileID: 1536281783}
+  SuccessIcon: {fileID: 540859470}
   ScoreManager: {fileID: 0}
 --- !u!1 &1849153530
 GameObject:
