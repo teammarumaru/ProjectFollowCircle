@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GameScript : MonoBehaviour
 {
-    public List<ballScript> ball;
+    public List<GameObject> ball;
     List<GameObject> select;
+    public StageScript st;
 
     // 予定
     // ・ステージ制になるだろうからステージに応じて判別するtag名を変える
@@ -16,6 +17,7 @@ public class GameScript : MonoBehaviour
     void Start()
     {
         select = new List<GameObject>();
+        st = GameObject.Find("StageObject").GetComponent<StageScript>();
     }
 
     // Update is called once per frame
@@ -41,32 +43,31 @@ public class GameScript : MonoBehaviour
             if (select?.Count > 0)  //なんか１個でも選択してるとき
             {
                 int n = 0;      // １個前の数字　これ以上だったらOK
-               bool g = true;   // 成否判定　変数名思いつかなかった顔をしている
-                if (select.Count == ball.Count)  //　←今はボールの総数＝答えてほしい総数だからこれでいいけど後のためにも変えような！
+                bool g = true;   // 成否判定　変数名思いつかなかった顔をしている
+
+                for (int i = 0; i < select.Count; i++)
                 {
-                   
-                    for (int i = 0; i < select.Count; i++)
+                    if (g == true && n <= select[i].GetComponent<ballScript>().num&&select[i].transform.tag.Contains(st.successTag))
                     {
-                        if (g == true && n <= select[i].GetComponent<ballScript>().num)
-                        {
-                            n = select[i].GetComponent<ballScript>().num;
-                            print(n);
-                        }
-                        else
-                        {
-                            g = false;
-                        }
-                        select[i].GetComponent<ballScript>().SetSelect(false);
+                        n = select[i].GetComponent<ballScript>().num;
+                        print(n);
                     }
+                    else
+                    {
+                        g = false;
+                    }
+                    select[i].GetComponent<ballScript>().SetSelect(false);
                 }
-                else
+                int c = 0;
+                for (int i = 0; i < ball.Count; i++) 
                 {
-                    for (int i = 0; i < select.Count; i++)
-                    {
-                        select[i].GetComponent<ballScript>().SetSelect(false);
-                    }
+                    if (ball[i].transform.tag.Contains(st.successTag))
+                        c++;
+                }
+                if (c != select.Count)
                     g = false;
-                }
+
+
 
                 // そもそもなんも選択してないときは判定されない
                 if(g)
@@ -87,16 +88,12 @@ public class GameScript : MonoBehaviour
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(pos, new Vector3(0, 0, 1), 100);
 
-        if (hit.collider && hit.collider.gameObject.GetComponent<ballScript>().GetSelect() == false)
+        if (hit.collider && hit.collider.transform.tag.Contains("_")&& hit.collider.gameObject.GetComponent<ballScript>().GetSelect() == false)
         {
             //既に選択中のボールは入れない
             select.Add(hit.collider.gameObject);
             hit.collider.gameObject.GetComponent<ballScript>().SetSelect(true);
             //Debug.Log(hit.collider.transform.tag);
-            if(hit.collider.transform.tag.Contains("white"))    //タグ名にwhiteがあるか(テスト)
-            {
-                Debug.Log("white");
-            }
             return true;
         }
         return false;

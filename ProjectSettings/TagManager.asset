@@ -6,6 +6,10 @@ TagManager:
   tags:
   - white_circle
   - red_circle
+  - white_square
+  - white_triangle
+  - blue_circle
+  - green_circle
   layers:
   - Default
   - TransparentFX
