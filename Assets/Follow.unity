@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
   stage: 0
@@ -151,8 +152,13 @@ MonoBehaviour:
   level: 3
 >>>>>>> master
 >>>>>>> master
+=======
+  stage: 4
+  level: 3
+>>>>>>> parent of 9f75e00... Revert "level3修正+a"
   ball: {fileID: 8985570375837625430, guid: bad0980f46d6e1e4992546bf8e4bdfde, type: 3}
   canbas: {fileID: 944737786}
+  successTag: 
 --- !u!4 &27491409
 Transform:
   m_ObjectHideFlags: 0
@@ -533,6 +539,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  st: {fileID: 0}
 --- !u!1 &1159572431
 GameObject:
   m_ObjectHideFlags: 0
