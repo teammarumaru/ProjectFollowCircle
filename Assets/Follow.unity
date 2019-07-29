@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
   stage: 0
@@ -151,6 +152,8 @@ MonoBehaviour:
   level: 3
 >>>>>>> master
 >>>>>>> master
+=======
+>>>>>>> parent of 0453e84... UI仕上げ付近
   ball: {fileID: 8985570375837625430, guid: bad0980f46d6e1e4992546bf8e4bdfde, type: 3}
   canbas: {fileID: 944737786}
 --- !u!4 &27491409
