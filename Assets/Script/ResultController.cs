@@ -50,7 +50,9 @@ public class ResultController : MonoBehaviour
 
        
         float comment = Mathf.Floor(average);
-        switch (comment)
+        int a = (int)comment;
+
+        switch (a)
         {
             case 5:
                 timeText.GetComponent<Text>().text = "まだまだです。もう一度やりませんか";
