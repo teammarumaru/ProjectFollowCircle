@@ -6,6 +6,13 @@ public class SystemManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    // 音楽管理
+    [SerializeField]
+    AudioClip TitleBGM = null;
+    [SerializeField]
+    AudioClip PlayBGM = null;
+
+    AudioSource Audio;
     // 最大ステージ数
     [SerializeField]
     const int MAX_STAGE = 5;
@@ -25,6 +32,8 @@ public class SystemManager : MonoBehaviour
         {
             score[i] = 0.0f;
         }
+        Audio = GetComponent<AudioSource>();
+        SetTitleBGM();
     }
 
     // GetSet祭り
@@ -57,5 +66,32 @@ public class SystemManager : MonoBehaviour
     public int GetGameCount()
     {
         return gameCount;
+    }
+
+    // システムマネージャーの初期化処理(引数：レベルを初期化するか否か
+    public void SystemClear(bool isLevel)
+    {
+        for (int i = 0; i < MAX_STAGE; i++)
+        {
+            score[i] = 0.0f;
+        }
+        gameCount = 1;
+        if (isLevel)
+            level = 1;
+    }
+    // 音楽管理
+    public void SetTitleBGM()
+    {
+        Audio.PlayOneShot(TitleBGM);   
+    }
+
+    public void SetPlayBGM()
+    {
+        Audio.PlayOneShot(PlayBGM);
+    }
+
+    public void StopBGM()
+    {
+        Audio.Stop();
     }
 }

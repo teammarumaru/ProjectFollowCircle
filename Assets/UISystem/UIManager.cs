@@ -75,6 +75,11 @@ public class UIManager : MonoBehaviour
                 }
                 else
                 {
+                    // 回数が5回を超えた場合はリザルトへ移動
+
+                    // 音楽を切り替える
+                    SystemManager.GetComponent<SystemManager>().StopBGM();
+                    SystemManager.GetComponent<SystemManager>().SetTitleBGM();
                     SceneManager.LoadScene("ResultScene");
                 }
             }

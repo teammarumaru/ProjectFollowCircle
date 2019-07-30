@@ -56,6 +56,9 @@ public class StageDirector : MonoBehaviour
             // システムマネージャーさんにレベルを渡す
             GameObject SystemManager = GameObject.Find("SystemManager");
             SystemManager.GetComponent<SystemManager>().SetLevel(nowLevel);
+            // BGMをプレイに変更
+            SystemManager.GetComponent<SystemManager>().StopBGM();
+            SystemManager.GetComponent<SystemManager>().SetPlayBGM();
             // シーン遷移処理(ちゃんとプレイシーンに変更してください)
             SceneManager.LoadScene("Follow");
         }
